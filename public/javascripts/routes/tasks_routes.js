@@ -1,13 +1,14 @@
 var app = app || {};
 
 app.Router = Backbone.Router.extend({
-    
+
   routes : {
-    "" : "scrumboard",
+   // "" : "scrumboard",
   },
 
   scrumboard : function() {
-    this.loadView(new app.TasksView({ collection: app.mytasks }));
+    //console.log(app.tasks);
+    this.loadView(new app.TasksView({ collection: app.tasks }));
   },
 
   loadView : function(view) {

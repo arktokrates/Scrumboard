@@ -13,9 +13,9 @@ var Scrumboard = {
     {
       id: '1',
       title: 'Test entry 2',
-      description: 'This is a test description.',
-      rating: '2',
-      responsible: 'Andrew',
+      description: 'This is another test description.',
+      rating: '3',
+      responsible: 'Mike',
       column: 'todo'
     }
   ],
@@ -37,10 +37,10 @@ var Scrumboard = {
     var id = this.getNextId();
     data.id = id.toString();
     this.tasks.push(data);
-    console.log("added new task with id " + id);
+    //console.log("added new task with id " + id);
+    console.log(this.tasks);
     return data;
   },
-
 
   find: function(id) {
       for (var i = 0; i < this.posts.length; i++) {
@@ -72,17 +72,17 @@ var Scrumboard = {
     this.last_id = 0;
   },
 
-  update: function(id,data) {
+  update: function(id, data) {
     for (var attr in data) {
       //console.log('updating card id ' + id + " will set " + attr + " = " + data[attr]);
       this.tasks[id][attr] = data[attr];
     }
-    return this.tasks[id];    
+    return this.tasks[id];
     }
 };
 
 
-exports.Tasks = Scrumboard;
+exports.tasks = Scrumboard;
 
 exports.getAllEntries = function() {
   return Scrumboard.allTasks();
@@ -96,7 +96,7 @@ exports.create = function(data) {
   return Scrumboard.add(data);
 };
 
-exports.update = function(id,data){
+exports.update = function(id, data){
   return Scrumboard.update(id,data);
 };
 

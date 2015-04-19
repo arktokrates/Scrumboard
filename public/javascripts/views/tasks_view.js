@@ -27,12 +27,12 @@ app.TasksView = Backbone.View.extend({
 
   addTaskView: function(task) {
 
-    var myTaskView = new app.TaskView({ model: task });
+    var myTaskView = new app.TaskView({model: task});
 
     this.views.push(myTaskView);
-
     var myRenderedElement = $(myTaskView.render().el);
     myRenderedElement.attr("id", task.get("id"));
+    //console.log(myRenderedElement.attr("id"));
     myRenderedElement.draggable({containment: "#scrumboard"});
 
     $('#' + task.get('column')).append(myRenderedElement);
@@ -40,26 +40,17 @@ app.TasksView = Backbone.View.extend({
 
   initialize: function() {
 
-    //this.listenTo(app.tasks, 'add', this.addOne);
+    this.listenTo(app.tasks, 'reset',this.addAll);
+    this.listenTo(app.tasks, 'add', this.addTaskView);
     //this.listenTo(app.tasks, 'all', this.render);
-
-    //$("#scrumboard").show();
     app.tasks.fetch({ reset: true });
-    this.listenTo(app.tasks,'reset',this.addAll);
-  },
-
-  addOne: function(task) {
-    var view = new app.TaskView({model: task});
-    //console.log(view);
-    this.$("#todo").append(view.render().el);
   },
 
   addAll: function() {
-    app.tasks.each(this.addOne, this);
-    for(var i = 0; i < this.views.length; i++) {
+    /* for(var i = 0; i < this.views.length; i++) {
       this.views[i].destroy();
     }
-  
+    */
     app.tasks.each(this.addTaskView, this); 
   }
 
@@ -77,15 +68,17 @@ app.TaskView = Backbone.View.extend({
   template: _.template($('#task-template').html()),
 
   initialize: function() {
+    this.model.fetch({ reset: true });
+    //console.log(this.model.attributes);
     this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.model, 'edit', this.edit);
     this.listenTo(this.model, 'save', this.save);
     this.listenTo(this.model, 'delete', this.destroy);
-    //this.render();
   },
 
   render: function() {
     this.$el.html(this.template(this.model.attributes));    
+    //console.log(this.model.attributes);
     return this;
   },
 
