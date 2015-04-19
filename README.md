@@ -66,4 +66,4 @@ Diese Funktionen sind nicht erfolgreich umgesetzt worden:
 
 ##Heroku
 
-* Auf Heroku zu finden unter [Scrum Board](https://scrumb.herokuapp.com).
+* Auf Heroku zu finden unter [Scrum Board](https://scrumb.herokuapp.com/tasks).
