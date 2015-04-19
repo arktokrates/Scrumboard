@@ -9,8 +9,6 @@ var tasks = require('./routes/tasks_routes');
 
 var app = express();
 
-var server = app.listen(3000);
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -57,5 +55,8 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
+app.listen(process.env.PORT || 8080);
 
 module.exports = app;
