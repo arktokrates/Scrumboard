@@ -19,3 +19,5 @@ app.Tasks = Backbone.Collection.extend({
   }
 
 });
+
+app.tasks = new app.Tasks();

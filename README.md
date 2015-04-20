@@ -21,7 +21,7 @@ Begrenzt durch die zur Verfügung stehende Zeit konnte leider nicht die gesamte 
 
 * Eine neu erfasste Karte wird in der Spalte Todo angezeigt.
 * Eine bestehende Karte lässt sich von einer Spalte in eine andere verschieben.
-* Bestehende Karten können bearbeitet werden.
+* Bestehende Karten können bearbeitet werden (Tabulatortaste verwenden)
 
 
 Diese Funktionen sind nicht erfolgreich umgesetzt worden:
@@ -29,7 +29,6 @@ Diese Funktionen sind nicht erfolgreich umgesetzt worden:
 * Bestehende Karten können nicht gelöscht werden.
 * Änderungen werden nicht gespeichert.
 * Ein Persistenzlayer wurde nicht eingebaut.
-* Zur Integration von Tests hat die Zeit leider nicht gereicht.
 
 &nbsp;
 
@@ -60,6 +59,12 @@ Diese Funktionen sind nicht erfolgreich umgesetzt worden:
 ##### Jade
 
 * Mit der Skriptsprache [Jade](http://jade-lang.com) können HTML-Templates einfach definiert werden.
+
+&nbsp;
+
+### Tests
+
+* Einige Tests für Model und Collection sind mit der Testsuite [Jasmine](http://jasmine.github.io) integriert worden.
 
 &nbsp;
 

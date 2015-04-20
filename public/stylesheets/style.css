@@ -93,6 +93,10 @@ td#todo #inProgress #done {
   right: 20px;
 }
 
+div .editable {
+  background-color: #999999;
+}
+
 .edit, .save {
   width: 20px;
   display: block;

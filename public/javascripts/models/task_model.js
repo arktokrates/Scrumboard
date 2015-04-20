@@ -6,7 +6,7 @@ var app = app || {};
 app.Task = Backbone.Model.extend({
 
   urlRoot: "/tasks",
-  id: "id",
+  idAttribute: "id",
 
   defaults: {
     id: '',
