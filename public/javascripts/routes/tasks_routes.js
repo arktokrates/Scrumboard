@@ -7,7 +7,6 @@ app.Router = Backbone.Router.extend({
   },
 
   scrumboard : function() {
-    //console.log(app.tasks);
     this.loadView(new app.TasksView({ collection: app.tasks }));
   },
 

@@ -12,18 +12,15 @@ router.param('task_id', function(req, res, next, id) {
 
 router.route('/').
     get(function(req, res, next) {
-      res.render('index', { title: 'Scrum Board' });
       var all_tasks = task.getAllEntries();
-      //res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Content-Type', 'application/json');
 		  res.end(JSON.stringify(all_tasks));
     }).
 
    post(function(req, res, next) {
       var newTask = task.create(req.body);
-      console.log(newTask);
-      //res.setHeader('Content-Type', 'application/json');
-      res.end(JSON.stringify(req.task_item));
-      //console.log(task_item);
+      res.setHeader('Content-Type', 'application/json');
+      res.end(JSON.stringify(newTask));
   }).
 
     put(function(req, res, next) {
@@ -34,7 +31,9 @@ router.route('/').
 
 router.route('/:task_id').
   get(function(req, res, next) {
-    res.send( req.card_item);
+    var one_task = task.find(req.params.task_id);
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(one_task));
   }).
   
   put(function(req, res, next) {

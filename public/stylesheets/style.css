@@ -7,10 +7,6 @@ a {
   color: #00B7FF;
 }
 
-.container {
-  /*border: 1px dotted; */
-}
-
 .createCard {
   display: block;
   float: left;
@@ -102,7 +98,7 @@ div .editable {
   display: block;
   position: relative;
   top: -5px;
-  right: 0px;
+  right: 20px;
   padding: 4px 10px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 10px;
@@ -124,6 +120,19 @@ div .editable {
   color: #f0f0f0;
 }
 
+.delete {
+  position: absolute;
+  right: 0px;
+  bottom: 3px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+
 .taskCard:hover .edit {
+  opacity: 1;
+}
+
+.taskCard:hover .delete {
   opacity: 1;
 }

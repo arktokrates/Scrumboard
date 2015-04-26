@@ -6,16 +6,10 @@ app.Tasks = Backbone.Collection.extend({
 
   createAndAddNewTask: function(data) {
     var task = new app.Task(data);
-    //console.log(task.attributes);
     task.save(task.attributes, {url:'/tasks/', type: 'POST'})
-    //console.log(app.tasks);
     app.tasks.add(task);
-    //console.log(task);
-    //console.log(app.tasks);
     //app.tasks.sync("create", task);
     //console.log(task.get("id"));
-    //task.save();
-    //task.set(task.attributes);
   }
 
 });

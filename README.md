@@ -17,17 +17,17 @@ Existierende Karten lassen sich bearbeiten, in eine andere Spalte verschieben od
 
 ## Funktionalitäten
 
-Begrenzt durch die zur Verfügung stehende Zeit konnte leider nicht die gesamte Funktionalität umgesetzt werden. Folgende Funktionalitäten sind möglich: 
+Begrenzt durch die zur Verfügung stehende Zeit konnte leider nicht die gesamte Funktionalität umgesetzt werden. Folgende Funktionalitäten sind gegeben: 
 
 * Eine neu erfasste Karte wird in der Spalte Todo angezeigt.
 * Eine bestehende Karte lässt sich von einer Spalte in eine andere verschieben.
-* Bestehende Karten können bearbeitet werden (Tabulatortaste verwenden)
+* Bestehende Karten können bearbeitet werden (nach Klick auf ´Edit´ Tabulatortaste verwenden)
+* Das Löschen bestehender Karten funktioniert teilweise.
 
 
-Diese Funktionen sind nicht erfolgreich umgesetzt worden:
+Diese Funktionen sind aufgrund meiner geringen Erfahrung im Programmieren und insbesondere mit JavaScripts innerhalb eines akzeptablen Zeitrahmens nicht erfolgreich umgesetzt worden:
 
-* Bestehende Karten können nicht gelöscht werden.
-* Änderungen werden nicht gespeichert.
+* Änderungen werden teilweise nicht gespeichert (gelöschte Karten).
 * Ein Persistenzlayer wurde nicht eingebaut.
 
 &nbsp;
@@ -71,4 +71,4 @@ Diese Funktionen sind nicht erfolgreich umgesetzt worden:
 
 ##Heroku
 
-* Auf Heroku zu finden unter [Scrum Board](https://scrumb.herokuapp.com/tasks).
+* Auf Heroku zu finden unter [Scrum Board](https://scrumb.herokuapp.com).
