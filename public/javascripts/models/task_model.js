@@ -1,6 +1,5 @@
 // Scrum board task model
 
-
 var app = app || {};
 
 app.Task = Backbone.Model.extend({

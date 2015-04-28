@@ -11,23 +11,23 @@ router.param('task_id', function(req, res, next, id) {
 
 
 router.route('/').
-    get(function(req, res, next) {
-      var all_tasks = task.getAllEntries();
-      res.setHeader('Content-Type', 'application/json');
-		  res.end(JSON.stringify(all_tasks));
-    }).
-
-   post(function(req, res, next) {
-      var newTask = task.create(req.body);
-      res.setHeader('Content-Type', 'application/json');
-      res.end(JSON.stringify(newTask));
+  get(function(req, res, next) {
+    var all_tasks = task.getAllEntries();
+    res.setHeader('Content-Type', 'application/json');
+	  res.end(JSON.stringify(all_tasks));
   }).
 
-    put(function(req, res, next) {
-      task.create(req.body);
-      res.setHeader('Content-Type', 'application/json');
-      res.end(JSON.stringify(req.task_item));
-    });
+  post(function(req, res, next) {
+    var newTask = task.create(req.body);
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(newTask));
+  }).
+
+  put(function(req, res, next) {
+    task.create(req.body);
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(req.task_item));
+  });
 
 router.route('/:task_id').
   get(function(req, res, next) {

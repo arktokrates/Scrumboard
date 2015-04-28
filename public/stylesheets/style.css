@@ -1,6 +1,7 @@
 body {
-  padding: 50px;
+  padding: 15px 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #ECF6CE;
 }
 
 a {
@@ -15,6 +16,7 @@ a {
 #scrumboard {
   width: 70%;
   float: right;
+  background-color: #F6F1E1;
 }
 
 #create {
@@ -31,7 +33,7 @@ a {
   border: 1px solid;
   border-collapse: collapse;
   width: 100%;
-  height: 500px;
+  height: 550px;
   vertical-align: top;
   float: right;
 }
@@ -47,6 +49,7 @@ th {
 td {
   width: 33.3%;
   vertical-align: top;
+  font-size: 100%;
 }
 
 td#todo #inProgress #done {
@@ -58,6 +61,7 @@ td#todo #inProgress #done {
   padding: 10px;
   border: 1px dotted;
   float: middle;
+  background-color: #FFFFF2;
 }
 
 .task_head {
@@ -69,7 +73,7 @@ td#todo #inProgress #done {
   margin-bottom: 10px;
 }
 
-.task_rating {
+.task_rating_name {
   float: right;
 }
 
@@ -90,7 +94,7 @@ td#todo #inProgress #done {
 }
 
 div .editable {
-  background-color: #999999;
+  background-color: #FFFFFF;
 }
 
 .edit, .save {
@@ -99,12 +103,12 @@ div .editable {
   position: relative;
   top: -5px;
   right: 20px;
-  padding: 4px 10px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 10px;
+  padding: 3px 5px;
+  border-radius: 2px;
   text-align: center;
   cursor: pointer;
   box-shadow: -1px 1px 4px rgba(0,0,0,0.5);
+  font-size: 80%;
 }
 
 .edit { 
@@ -122,8 +126,8 @@ div .editable {
 
 .delete {
   position: absolute;
-  right: 0px;
-  bottom: 3px;
+  right: -5px;
+  bottom: 0px;
   cursor: pointer;
   opacity: 0;
   transition: opacity .2s ease-in-out;

@@ -2,7 +2,7 @@ $(function() {
 
   app.tasks = new app.Tasks();
 
-  app.tasksView = new app.TasksView();
+  app.tasksView = new app.TasksView({collection: app.tasks});
 
   $('#submit').on('click', function() {
     app.tasks.createAndAddNewTask(

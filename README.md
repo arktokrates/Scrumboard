@@ -17,17 +17,13 @@ Existierende Karten lassen sich bearbeiten, in eine andere Spalte verschieben od
 
 ## Funktionalitäten
 
-Begrenzt durch die zur Verfügung stehende Zeit konnte leider nicht die gesamte Funktionalität umgesetzt werden. Folgende Funktionalitäten sind gegeben: 
+Die Funktionen gemäss der Aufgabenstellung sind alle umgesetzt worden, wenn auch bedingt durch meine geringe Erfahrung im Programmieren und insbesondere mit JavaScript in recht einfacher Weise: 
 
 * Eine neu erfasste Karte wird in der Spalte Todo angezeigt.
 * Eine bestehende Karte lässt sich von einer Spalte in eine andere verschieben.
-* Bestehende Karten können bearbeitet werden (nach Klick auf ´Edit´ Tabulatortaste verwenden)
-* Das Löschen bestehender Karten funktioniert teilweise.
+* Bestehende Karten können bearbeitet und gespeichert werden (nach Klick auf ´Edit´ Tabulatortaste verwenden)
+* Bestehende Karten können gelöscht werden.
 
-
-Diese Funktionen sind aufgrund meiner geringen Erfahrung im Programmieren und insbesondere mit JavaScripts innerhalb eines akzeptablen Zeitrahmens nicht erfolgreich umgesetzt worden:
-
-* Änderungen werden teilweise nicht gespeichert (gelöschte Karten).
 * Ein Persistenzlayer wurde nicht eingebaut.
 
 &nbsp;

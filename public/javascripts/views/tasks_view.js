@@ -10,7 +10,6 @@ app.TasksView = Backbone.View.extend({
 
     $('#scrumboard tbody tr td').droppable({      
       drop: function(event, ui) {
-   
         var taskColumn = $(event.target).attr('id');
         var cardId = $(ui.draggable).attr('id');
         var task = app.tasks.where({id: cardId})[0];
@@ -18,6 +17,17 @@ app.TasksView = Backbone.View.extend({
         task.save();
       }
     });
+  },
+
+  remove : function(model) {
+    for(var i = 0; i <= this.views.length; i++) {
+      var view = this.views[i];
+      if (view.model == model) {
+        this.views.splice(i, 1);
+        view.remove();
+        break;
+      }
+    }
   },
 
   addTaskView: function(task) {
@@ -37,12 +47,13 @@ app.TasksView = Backbone.View.extend({
     this.listenTo(app.tasks, 'reset',this.addAll);
     this.listenTo(app.tasks, 'add', this.addTaskView);
     this.listenTo(app.tasks, 'all', this.render);
-    app.tasks.fetch({ reset: true });
+    this.listenTo(app.tasks, 'remove', this.remove, this);
+    this.collection.fetch({reset: true});
   },
 
   addAll: function() {
     for(var i = 0; i < this.views.length; i++) {
-      this.views[i].destroy();
+      this.views[i].delete();
     }
     app.tasks.each(this.addTaskView, this); 
   }
@@ -55,17 +66,17 @@ app.TaskView = Backbone.View.extend({
   events: {
     'click .edit': 'edit',
     'click .save': 'save',
-    'click .delete': 'destroy'
+    'click .delete': 'delete'
   },
 
   template: _.template($('#task-template').html()),
 
   initialize: function() {
-    this.model.fetch({ reset: true });
+    this.model.fetch({reset: true});
     this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.model, 'edit', this.edit);
     this.listenTo(this.model, 'save', this.save);
-    this.listenTo(this.model, 'delete', this.destroy);
+    this.listenTo(this.model, 'delete', this.delete);
   },
 
   render: function() {
@@ -78,7 +89,8 @@ app.TaskView = Backbone.View.extend({
   edit: function() {
     this.$('.edit').hide();
     this.$('.taskCard').addClass('editable');
-    this.$('.task_head').attr('contenteditable', 'true');
+    this.$('.task_title').attr('contenteditable', 'true').focus();
+    this.$('.task_rating').attr('contenteditable', 'true');
     this.$('.task_description').attr('contenteditable', 'true');
     this.$('.task_responsible').attr('contenteditable', 'true');
     this.$('.save').show();
@@ -87,14 +99,22 @@ app.TaskView = Backbone.View.extend({
   save: function() {
     this.$('.save').hide();
     this.$('.taskCard').removeClass('editable');
-    this.$('.task_head').removeAttr('contenteditable');
+    this.$('.task_title').removeAttr('contenteditable');
+    this.$('.task_rating').removeAttr('contenteditable');
     this.$('.task_description').removeAttr('contenteditable');
     this.$('.task_responsible').removeAttr('contenteditable');
+    this.model.set({
+      title: this.$('.task_title').text(),
+      rating: this.$('.task_rating').text(),
+      description: this.$('.task_description').text(),
+      responsible: this.$('.task_responsible').text()
+    })
+    this.model.save();
     this.$('.edit').show();
   },
 
-  destroy: function() {
-    this.remove();
+  delete: function() {
+    this.model.destroy();
   }
 
 });
